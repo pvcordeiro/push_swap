@@ -5,73 +5,76 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 20:10:40 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/22 21:17:51 by paude-so         ###   ########.fr       */
+/*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
+/*   Updated: 2024/11/25 17:02:17 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *stack)
+int	null_check(t_stack **stack)
 {
-	t_node	*temp;
-
-	while (stack->top)
-	{
-		temp = stack->top;
-		stack->top = stack->top->next;
-		free(temp);
-	}
-	free(stack);
+	return (*stack == NULL || (*stack)->next == NULL);
 }
 
-int	is_sorted(t_stack *stack)
+int	ft_atoi(const char *str)
 {
-	t_node *temp;
+	long	result = 0;
+	int		sign = 1;
 
-	temp = stack->top;
-	while (temp && temp->next)
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (temp->value > temp->next->value)
-			return (0);
-		temp = temp->next;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (1);
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		if (result * sign > INT_MAX || result * sign < INT_MIN)
+			quit();
+		str++;
+	}
+	if (*str != '\0')
+		quit();
+	return (int)(result *sign);
 }
 
-int	add_node(t_stack *stack, int value)
+void	check_duplicates(t_stack *stack)
 {
-	t_node	*new_node;
+	t_stack	*outer;
+	t_stack	*inner;
 
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (0);
-	new_node->value = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
-	stack->size++;
-	return (1);
+	outer = stack;
+	while (outer)
+	{
+		inner = outer->next;
+		while (inner)
+		{
+			if (outer->value == inner->value)
+				quit();
+			inner = inner->next;
+		}
+		outer = outer->next;
+	}
 }
 
-int	ft_atoi(const char *nptr)
+void	quit(void)
 {
-	int	result;
-	int	sign;
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}
 
-	result = 0;
-	sign = 1;
-	while ((*nptr && *nptr >= 9 && *nptr <= 13) || *nptr == 32)
-		nptr++;
-	if (*nptr == '+' || *nptr == '-')
+void	free_stack(t_stack **stack)
+{
+	t_stack *temp;
+
+	while (*stack)
 	{
-		if (*nptr == '-')
-			sign = -sign;
-		nptr++;
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		result = result * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (result * sign);
 }

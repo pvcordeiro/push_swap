@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 18:05:25 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/22 21:06:08 by paude-so         ###   ########.fr       */
+/*   Created: 2024/11/25 16:10:38 by paude-so          #+#    #+#             */
+/*   Updated: 2024/11/25 16:27:10 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+static void	swap(t_stack **stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack *temp;
 
-	if (argc < 2)
-		return (1);
-	stack_a = initialize_stack(argc, argv);
-	if (!a || issorted(a))
-		return (free_stack(a), 1)
-	b = malloc(sizeof(t_stack));
-	if (!b)
-		return (free_stack(a), write(2, "Error\n", 6), 1);
-	b->top = NULL;
-	b->size = 0;
-	if (a->size <= 5)
-		sort_small(a, b);
-	else
-		sort_large(a, b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	if (!null_check(stack))
+		return ;
+	temp = *stack;
+	*stack = (*stack)-> next;
+	temp->next = (*stack)->next;
+	(*stack)->next = temp;
+}
+void	sa(t_stack **a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+void	sb(t_stack **b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
+}
+void	ss(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }
