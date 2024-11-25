@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:28:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/22 20:37:14 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 11:35:42 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,15 @@ void	sort_small(t_stack *a, t_stack *b)
 	}
 }
 
-void	sort_large(t_stack *a)
+void	sort_large(t_stack *a, t_stack *b)
+{
+	if (a->size <= 100)
+		chunk_sort(a, b, 20);
+	else
+		radix_sort(a, b);
+}
+
+void	radix_sort(t_stack *a, t_stack *b)
+{
+	int	i
+}
