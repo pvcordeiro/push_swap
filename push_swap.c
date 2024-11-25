@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 20:42:43 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 21:15:23 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(a))
 		return (free_stack(&a), 0);
 	if (stack_size(a) <= 5)
-		sort_five(&a, &b);
+		sort_six(&a, &b);
 	else
 	{
 		// normalize_stack(a);
