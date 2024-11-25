@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:02:17 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 16:17:37 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:10:34 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	pb(t_stack **a, t_stack **b)
 
 void	pa(t_stack **a, t_stack **b)
 {
-	push(a, b);
+	push(b, a);
 	write(1, "pa\n", 3);
 }

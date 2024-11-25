@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 17:47:49 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:14:19 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,44 @@ static void	single_string(char **argv, t_stack **a)
 		free_split(argv);
 }
 
+static int	is_sorted(t_stack *stack)
+{
+	t_stack *temp;
+
+	if (!stack)
+		return (1);
+	temp = stack;
+	while (temp->next)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+// static void	normalize_stack(t_stack *stack)
+// {
+// 	t_stack *temp1;
+// 	t_stack *temp2;
+// 	int		rank;
+
+// 	temp1 = stack;
+// 	while (temp1)
+// 	{
+// 		rank = 0;
+// 		temp2 = stack;
+// 		while (temp2)
+// 		{
+// 			if (temp2->value < temp1->value)
+// 				rank++;
+// 			temp2 = temp2->next;
+// 		}
+// 		temp1->value = rank;
+// 		temp1 = temp1->next;
+// 	}
+// }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -50,7 +88,15 @@ int	main(int argc, char **argv)
 	else
 		init_stack(argc, argv, &a);
 	check_duplicates(a);
-	radix(&a, &b);
+	if (is_sorted(a))
+		return (free_stack(&a), 0);
+	if (stack_size(a) <= 10)
+		sort_ten_or_less(&a, &b);
+	else
+	{
+		// normalize_stack(a);
+		radix(&a, &b);
+	}
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 17:49:55 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:54:20 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -44,5 +45,7 @@ int		ft_atoi(const char *str);
 int		null_check(t_stack **stack);
 char	**ft_split(char *s, char c);
 void	radix(t_stack **a, t_stack **b);
+int		stack_size(t_stack *stack);
+void	sort_ten_or_less(t_stack **a, t_stack **b);
 
 #endif

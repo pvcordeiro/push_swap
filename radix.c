@@ -6,13 +6,13 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 17:50:36 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:14:04 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
 	int	size;
 	t_stack *temp;
@@ -68,7 +68,7 @@ void	radix(t_stack **a, t_stack **b)
 				ra(a);
 			size--;
 		}
-		while (stack_size(*b) > 0)
+		while (*b)
 			pa(a, b);
 		bit++;
 	}
