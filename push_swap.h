@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 19:54:20 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:42:04 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int		null_check(t_stack **stack);
 char	**ft_split(char *s, char c);
 void	radix(t_stack **a, t_stack **b);
 int		stack_size(t_stack *stack);
-void	sort_ten_or_less(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
 
 #endif

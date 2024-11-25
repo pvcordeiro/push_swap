@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 19:58:47 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:51:54 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,26 @@ static void	sort_three(t_stack **stack)
 		rra(stack);
 }
 
-void	sort_ten_or_less(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b)
 {
-	int	min_index;
+    int min_index;
 
-	while (stack_size(*a) > 3)
-	{
-		min_index = find_min_index(*a);
-		while (min_index > 0)
-		{
-			if (min_index <= stack_size(*a) / 2)
-				ra(a);
-			else
-				rra(a);
-			min_index--;
-		}
-		pb(a, b);
-	}
-	sort_three(a);
-	while (*b)
-		pa(a, b);
+    while (stack_size(*a) > 3)
+    {
+        min_index = find_min_index(*a);
+        if (min_index <= stack_size(*a) / 2)
+        {
+            while (min_index-- > 0)
+                ra(a);
+        }
+        else
+        {
+            while (min_index++ < stack_size(*a))
+                rra(a);
+        }
+        pb(a, b);
+    }
+    sort_three(a);
+    while (*b)
+        pa(a, b);
 }
