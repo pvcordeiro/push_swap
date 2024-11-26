@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 18:58:35 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:17:30 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || !argv[1][0])
+	if (argc == 1)
+		return (0);
+	if (!argv[1][0])
 		quit();
 	if (argc == 2)
 		single_string(argv, &a);
