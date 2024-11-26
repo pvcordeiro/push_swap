@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 21:15:23 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:47:20 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,13 @@ static void	single_string(char **argv, t_stack **a)
 	free_split(argv);
 }
 
-static int	is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-	t_stack *temp;
-
-	if (!stack)
-		return (1);
-	temp = stack;
-	while (temp->next)
+	while (stack && stack->next)
 	{
-		if (temp->value > temp->next->value)
+		if (stack->value > stack->next->value)
 			return (0);
-		temp = temp->next;
+		stack = stack->next;
 	}
 	return (1);
 }
@@ -81,8 +76,8 @@ int	main(int argc, char **argv)
 	
 	a = NULL;
 	b = NULL;
-	if (argc < 2)
-		return (0);
+	if (argc < 2 || (argc == 2 && !argv[1][0]))
+		return (1);
 	if (argc == 2)
 		single_string(argv, &a);
 	else
@@ -90,7 +85,7 @@ int	main(int argc, char **argv)
 	check_duplicates(a);
 	if (is_sorted(a))
 		return (free_stack(&a), 0);
-	if (stack_size(a) <= 5)
+	else if (stack_size(a) <= 6)
 		sort_six(&a, &b);
 	else
 	{

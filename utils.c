@@ -6,15 +6,15 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 20:23:42 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:18:02 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	null_check(t_stack **stack)
+int	is_null(t_stack **stack)
 {
-	return (*stack == NULL || (*stack)->next == NULL);
+	return (!(*stack) || !(*stack)->next);
 }
 
 int	ft_atoi(const char *str)
