@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:36:33 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:06:46 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	quit(void);
 void	check_duplicates(t_stack *stack);
 int		ft_atoi(const char *str);
 int		is_null(t_stack **stack);
-char	**ft_split(char *s, char c);
+char	**split(char *s);
 void	radix(t_stack **a, t_stack **b);
 int		stack_size(t_stack *stack);
 void	sort_six(t_stack **a, t_stack **b);

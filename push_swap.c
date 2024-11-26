@@ -6,13 +6,13 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:42:31 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:17:48 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_split(char	**argv)
+static void	free_matrix(char	**argv)
 {
 	char	**start;
 	
@@ -26,9 +26,7 @@ static void	single_string(char **argv, t_stack **a)
 {
 	char	**temp;
 	
-	if (!argv[1] || !argv[1][0])
-		quit();
-	argv = ft_split(argv[1], ' ');
+	argv = split(argv[1]);
 	if (!argv)
 	{
 		free_stack(a);
@@ -38,7 +36,7 @@ static void	single_string(char **argv, t_stack **a)
 	while (*temp)
 		temp++;
 	init_stack(temp - argv + 1, argv - 1, a);
-	free_split(argv);
+	free_matrix(argv);
 }
 
 int	is_sorted(t_stack *stack)
@@ -112,7 +110,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2 || (argc == 2 && !argv[1][0]))
-		return (1);
+		quit();
 	if (!handle_stack(argc, argv, &a, &b))
 		return (0);
 	free_stack(&a);

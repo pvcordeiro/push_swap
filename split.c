@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:43:23 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:11:08 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,35 +57,35 @@ static char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-static size_t	ft_sub_count(char *s, char c)
+static size_t	nb_count(char *s)
 {
 	size_t	count;
 
 	count = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s == 32)
 			s++;
-		if (*s && *s != c)
+		if (*s && *s != 32)
 		{
 			count++;
-			while (*s && *s != c)
+			while (*s && *s != 32)
 				s++;
 		}
 	}
 	return (count);
 }
 
-static char	**ft_rec_split(char *s, char c, char **str)
+static char	**fill_matrix(char *s, char **str)
 {
 	char	*substr;
 
-	while (*s && *s == c)
+	while (*s && *s == 32)
 		s++;
-	if (!*s || (*s + 1) == c)
+	if (!*s || (*s + 1) == 32)
 		return (NULL);
 	substr = s;
-	while (*s && *s != c)
+	while (*s && *s != 32)
 		s++;
 	*str = ft_substr(substr, 0, s - substr);
 	if (!*str)
@@ -95,21 +95,21 @@ static char	**ft_rec_split(char *s, char c, char **str)
 		free(str);
 		return (NULL);
 	}
-	return (ft_rec_split(s, c, str + 1));
+	return (fill_matrix(s, str + 1));
 }
 
-char	**ft_split(char *s, char c)
+char	**split(char *s)
 {
 	char	**str;
 	char	**clean;
 
 	if (!s)
 		return (NULL);
-	str = ft_calloc(ft_sub_count(s, c) + 1, sizeof(char *));
+	str = ft_calloc(nb_count(s) + 1, sizeof(char *));
 	if (!str)
 		return (NULL);
 	clean = str;
-	if (!ft_rec_split(s, c, str))
+	if (!fill_matrix(s, str))
 	{
 		while (*clean)
 			free(*clean++);
