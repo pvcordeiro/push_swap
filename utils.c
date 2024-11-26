@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 14:18:02 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:01:24 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_null(t_stack **stack)
 {
-	return (!(*stack) || !(*stack)->next);
+	return (!stack || !(*stack) || !(*stack)->next);
 }
 
 int	ft_atoi(const char *str)

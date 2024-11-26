@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 20:23:16 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:05:38 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ static char	**ft_rec_split(char *s, char c, char **str)
 	{
 		while (*--str)
 			free(*str);
+		free(str);
 		return (NULL);
 	}
 	return (ft_rec_split(s, c, str + 1));
