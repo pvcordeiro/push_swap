@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:35:50 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:40:16 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	stack_size(t_stack *stack)
 {
-	int	size;
-	t_stack *temp;
+	int		size;
+	t_stack	*temp;
 
 	size = 0;
 	temp = stack;
@@ -31,7 +31,7 @@ static int	find_max_bits(t_stack *stack)
 {
 	int		max;
 	int		bits;
-	t_stack *temp;
+	t_stack	*temp;
 
 	max = 0;
 	bits = 0;
@@ -47,20 +47,29 @@ static int	find_max_bits(t_stack *stack)
 	return (bits);
 }
 
-void radix(t_stack **a, t_stack **b)
+void	radix(t_stack **a, t_stack **b)
 {
-    int max_bits = find_max_bits(*a);
-    for (int bit = 0; bit < max_bits; bit++)
-    {
-        int size = stack_size(*a);
-        for (int i = 0; i < size; i++)
-        {
-            if (((*a)->value >> bit) & 1)
-                ra(a);
-            else
-                pb(a, b);
-        }
-        while (*b)
-            pa(a, b);
-    }
+	int	max_bits;
+	int	size;
+	int	bit;
+	int	i;
+
+	max_bits = find_max_bits(*a);
+	bit = 0;
+	while (bit < max_bits)
+	{
+		size = stack_size(*a);
+		i = 0;
+		while (i < size)
+		{
+			if (((*a)->value >> bit) & 1)
+				ra(a);
+			else
+				pb(a, b);
+			i++;
+		}
+		while (*b)
+			pa(a, b);
+		bit++;
+	}
 }
