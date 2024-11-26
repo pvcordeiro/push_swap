@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:46:06 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:58:11 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,23 +88,20 @@ void	normalize_stack(t_stack *stack)
 void	radix(t_stack **a, t_stack **b)
 {
 	int	max_bits;
-	int	size;
+	int	a_size;
 	int	bit;
-	int	i;
 
 	max_bits = find_max_bits(*a);
 	bit = 0;
 	while (bit < max_bits)
 	{
-		size = stack_size(*a);
-		i = 0;
-		while (i < size)
+		a_size = stack_size(*a);
+		while (a_size--)
 		{
 			if (((*a)->value >> bit) & 1)
 				ra(a);
 			else
 				pb(a, b);
-			i++;
 		}
 		while (*b)
 			pa(a, b);
