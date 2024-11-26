@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 14:25:34 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:36:33 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	radix(t_stack **a, t_stack **b);
 int		stack_size(t_stack *stack);
 void	sort_six(t_stack **a, t_stack **b);
 int		is_sorted(t_stack *stack);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
