@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:58:11 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:08:16 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 int	stack_size(t_stack *stack)
 {
 	int		size;
-	t_stack	*temp;
 
 	size = 0;
-	temp = stack;
-	while (temp)
+	while (stack)
 	{
+		stack = stack->next;
 		size++;
-		temp = temp->next;
 	}
 	return (size);
 }
@@ -31,18 +29,16 @@ static int	find_max_bits(t_stack *stack)
 {
 	int		max;
 	int		bits;
-	t_stack	*temp;
 
 	max = 0;
 	bits = 0;
-	temp = stack;
-	while (temp)
+	while (stack)
 	{
-		if (temp->value > max)
-			max = temp->value;
-		temp = temp->next;
+		if (stack->value > max)
+			max = stack->value;
+		stack = stack->next;
 	}
-	while ((max >> bits) != 0)
+	while (max >> bits)
 		bits++;
 	return (bits);
 }
@@ -53,7 +49,6 @@ void	normalize_stack(t_stack *stack)
 	t_stack	*temp2;
 	int		*ranks;
 	int		i;
-	int		j;
 	int		size;
 	int		rank;
 
@@ -75,12 +70,12 @@ void	normalize_stack(t_stack *stack)
 		temp1 = temp1->next;
 	}
 	temp1 = stack;
-	j = 0;
+	i = 0;
 	while (temp1)
 	{
-		temp1->value = ranks[j];
+		temp1->value = ranks[i];
 		temp1 = temp1->next;
-		j++;
+		i++;
 	}
 	free(ranks);
 }
