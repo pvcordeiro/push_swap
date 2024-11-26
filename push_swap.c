@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:00:47 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:14:57 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	single_string(char **argv, t_stack **a)
 	argv = ft_split(argv[1], ' ');
 	if (!argv)
 	{
-		free_split(argv);
+		free_stack(a);
 		quit();
 	}
 	temp = argv;

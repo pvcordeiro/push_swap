@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:05:38 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:22:29 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static char	**ft_rec_split(char *s, char c, char **str)
 
 	while (*s && *s == c)
 		s++;
-	if (!*s)
-		return (str);
+	if (!*s || (*s + 1) == c)
+		return (NULL);
 	substr = s;
 	while (*s && *s != c)
 		s++;
