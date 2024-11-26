@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:47:21 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:51:52 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int	handle_stack(int argc, char **argv, t_stack **a, t_stack **b)
+static int	handle_stack(int argc, char **argv, t_stack **a, t_stack **b)
 {
 	if (argc == 2)
 		single_string(argv, a);
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || (argc == 2 && !argv[1][0]))
+	if (argc < 2 || !argv[1][0])
 		quit();
 	if (!handle_stack(argc, argv, &a, &b))
 		return (0);
