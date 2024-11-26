@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:40:16 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:46:06 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,44 @@ static int	find_max_bits(t_stack *stack)
 	while ((max >> bits) != 0)
 		bits++;
 	return (bits);
+}
+
+void	normalize_stack(t_stack *stack)
+{
+	t_stack	*temp1;
+	t_stack	*temp2;
+	int		*ranks;
+	int		i;
+	int		j;
+	int		size;
+	int		rank;
+
+	i = 0;
+	size = stack_size(stack);
+	ranks = ft_calloc(size, sizeof(int));
+	temp1 = stack;
+	while (temp1)
+	{
+		rank = 0;
+		temp2 = stack;
+		while (temp2)
+		{
+			if (temp2->value < temp1->value)
+				rank++;
+			temp2 = temp2->next;
+		}
+		ranks[i++] = rank;
+		temp1 = temp1->next;
+	}
+	temp1 = stack;
+	j = 0;
+	while (temp1)
+	{
+		temp1->value = ranks[j];
+		temp1 = temp1->next;
+		j++;
+	}
+	free(ranks);
 }
 
 void	radix(t_stack **a, t_stack **b)
