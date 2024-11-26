@@ -6,49 +6,38 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 14:16:30 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:36:06 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-// static void print_stack(t_stack *a)
-// {
-//     while (a)
-//     {
-//         printf("%d ", a->value);
-//         a = a->next;
-//     }
-//     printf("\n");
-// }
 
 static void	sort_three(t_stack **a)
 {
 	int	first;
 	int	second;
 	int	third;
-	
+
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
 	if (first > second && second < third && first < third)
-	    sa(a);
-    else if (first > second && second > third && first > third)
-        sa(a), rra(a);
+		sa(a);
+	else if (first > second && second > third && first > third)
+		(sa(a), rra(a));
 	else if (first > second && second < third && first > third)
-        ra(a);
-    else if (first < second && second > third && first < third)
-        sa(a), ra(a);
+		ra(a);
+	else if (first < second && second > third && first < third)
+		(sa(a), ra(a));
 	else if (first < second && second > third && first > third)
-        rra(a);
+		rra(a);
 }
 
 static int	find_min_index(t_stack *stack)
 {
-	int		index;
-	int		min_index;
-	int		min_value;
+	int	index;
+	int	min_index;
+	int	min_value;
 
 	index = 0;
 	min_index = 0;
@@ -66,27 +55,27 @@ static int	find_min_index(t_stack *stack)
 	return (min_index);
 }
 
-void sort_six(t_stack **a, t_stack **b)
+void	sort_six(t_stack **a, t_stack **b)
 {
-    int min_index;
+	int	min_index;
 
-    while (stack_size(*a) > 3)
-    {
-        min_index = find_min_index(*a);
-        if (min_index <= stack_size(*a) / 2)
-        {
-            while (min_index--)
+	while (stack_size(*a) > 3)
+	{
+		min_index = find_min_index(*a);
+		if (min_index <= stack_size(*a) / 2)
+		{
+			while (min_index--)
 				ra(a);
-        }
-        else
-        {
-            while (min_index++ < stack_size(*a))
+		}
+		else
+		{
+			while (min_index++ < stack_size(*a))
 				rra(a);
-        }
-        pb(a, b);
-    }
+		}
+		pb(a, b);
+	}
 	if (!is_sorted(*a))
 		sort_three(a);
-    while (*b)
+	while (*b)
 		pa(a, b);
 }

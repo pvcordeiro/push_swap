@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:02:17 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 14:18:49 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:36:54 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*temp;
-	
+
 	if (*src == NULL)
 		return ;
 	temp = *src;
@@ -23,6 +23,7 @@ static void	push(t_stack **src, t_stack **dst)
 	temp->next = *dst;
 	*dst = temp;
 }
+
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);

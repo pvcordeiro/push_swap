@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 16:13:57 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:37:06 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	is_null(t_stack **stack)
 
 int	ft_atoi(const char *str)
 {
-	long	result = 0;
-	int		sign = 1;
+	long	result;
+	int		sign;
 
+	result = 0;
+	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
@@ -39,7 +41,7 @@ int	ft_atoi(const char *str)
 	}
 	if (*str != '\0')
 		quit();
-	return (int)(result *sign);
+	return ((int)(result * sign));
 }
 
 void	check_duplicates(t_stack *stack)
@@ -69,7 +71,7 @@ void	quit(void)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	while (*stack)
 	{

@@ -14,18 +14,18 @@
 
 static void	rotate(t_stack **stack)
 {
-    t_stack *tmp;
-	t_stack *last;
+	t_stack	*tmp;
+	t_stack	*last;
 
-    if (is_null(stack))
-        return ;
-    tmp = *stack;
-    *stack = tmp->next;
-    tmp->next = NULL;
+	if (is_null(stack))
+		return ;
+	tmp = *stack;
+	*stack = tmp->next;
+	tmp->next = NULL;
 	last = *stack;
-    while (last->next)
-        last = last->next;
-    last->next = tmp;
+	while (last->next)
+		last = last->next;
+	last->next = tmp;
 }
 
 void	ra(t_stack **a)

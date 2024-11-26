@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/25 20:23:25 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:33:17 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	add_to_stack(t_stack **stack, int value)
 	*stack = node;
 }
 
-void	init_stack(int	argc, char	**argv, t_stack **stack)
+void	init_stack(int argc, char **argv, t_stack **stack)
 {
 	int	i;
 	int	value;

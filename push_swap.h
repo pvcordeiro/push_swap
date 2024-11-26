@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:06:46 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:32:20 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
-    int				value;
-    struct s_stack	*next;
+	int				value;
+	struct s_stack	*next;
 }	t_stack;
 
 void	pb(t_stack **a, t_stack **b);
@@ -35,7 +34,7 @@ void	rrr(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-void	init_stack(int	argc, char	**argv, t_stack **stack);
+void	init_stack(int argc, char **argv, t_stack **stack);
 void	add_to_stack(t_stack **stack, int value);
 t_stack	*new_node(int value);
 void	free_stack(t_stack **stack);
