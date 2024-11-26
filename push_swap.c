@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 18:20:32 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:58:35 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,9 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-static int	handle_stack(int argc, char **argv, t_stack **a, t_stack **b)
+static int	handle_stack(t_stack **a, t_stack **b)
 {
-	if (argc == 2)
-		single_string(argv, a);
-	else
-		init_stack(argc, argv, a);
-	check_duplicates(*a);
-	if (is_sorted(*a))
-		return (free_stack(a), 0);
-	else if (stack_size(*a) == 2 && !is_sorted(*a))
+	if (stack_size(*a) == 2 && !is_sorted(*a))
 		sa(a);
 	else if (stack_size(*a) <= 10)
 		sort_ten(a, b);
@@ -77,12 +70,14 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2 || !argv[1][0])
 		quit();
-	if (!handle_stack(argc, argv, &a, &b))
-	{
-		free_stack(&a);
-		free_stack(&b);
-		quit();
-	}
+	if (argc == 2)
+		single_string(argv, &a);
+	else
+		init_stack(argc, argv, &a);
+	check_duplicates(a);
+	if (is_sorted(a))
+		return (1);
+	handle_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
