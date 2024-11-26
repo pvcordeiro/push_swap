@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:11:08 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:39:45 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ static size_t	nb_count(char *s)
 	count = 0;
 	while (*s)
 	{
-		while (*s == 32)
+		while (*s == ' ')
 			s++;
-		if (*s && *s != 32)
+		if (*s && *s != ' ')
 		{
 			count++;
-			while (*s && *s != 32)
+			while (*s && *s != ' ')
 				s++;
 		}
 	}
@@ -80,12 +80,12 @@ static char	**fill_matrix(char *s, char **str)
 {
 	char	*substr;
 
-	while (*s && *s == 32)
+	while (*s && *s == ' ')
 		s++;
-	if (!*s || (*s + 1) == 32)
+	if (!*s || (*s + 1) == ' ')
 		return (NULL);
 	substr = s;
-	while (*s && *s != 32)
+	while (*s && *s != ' ')
 		s++;
 	*str = ft_substr(substr, 0, s - substr);
 	if (!*str)

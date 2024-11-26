@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 19:17:30 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:33:04 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	free_matrix(char **argv)
 static void	single_string(char **argv, t_stack **a)
 {
 	char	**temp;
+	int		count;
 
 	argv = split(argv[1]);
 	if (!argv)
@@ -35,7 +36,13 @@ static void	single_string(char **argv, t_stack **a)
 	temp = argv;
 	while (*temp)
 		temp++;
-	init_stack(temp - argv + 1, argv - 1, a);
+	count = temp - argv;
+	if (count == 1)
+	{
+		free_matrix(argv);
+		exit(EXIT_SUCCESS);
+	}
+	init_stack(count + 1, argv - 1, a);
 	free_matrix(argv);
 }
 
