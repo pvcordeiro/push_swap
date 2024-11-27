@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 21:08:22 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:19:07 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static int	sort_stack(t_stack **a, t_stack **b)
 		sa(a);
 	else if (stack_size(a) <= 10)
 		sort_ten(a, b);
-	// else if (stack_size(a) <= 100)
-	// 	merge_sort(a, b);
+	else if (stack_size(a) <= 100)
+		merge_sort(a, b);
 	else
 		radix(a, b);
 	return (1);
