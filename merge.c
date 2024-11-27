@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:38:17 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	merge_sorted_stacks(t_stack **a, t_stack **b, int left_size,
 	total_size = left_size + right_size;
 	while (left_size > 0 && right_size > 0)
 	{
-		if ((*b)->value < (*a)->value)
+		if ((*b)->number < (*a)->number)
 		{
 			pa(a, b);
 			right_size--;

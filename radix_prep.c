@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:15:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:43:16 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	calculate_ranks(t_stack **stack, int *ranks)
 		cmp_node = *stack;
 		while (cmp_node)
 		{
-			if (cmp_node->value < iter_stack->value)
+			if (cmp_node->number < iter_stack->number)
 				cmp_rank++;
 			cmp_node = cmp_node->next;
 		}
@@ -41,7 +41,7 @@ static void	update_stack_with_ranks(t_stack **stack, int *ranks)
 	updt_stack = *stack;
 	while (updt_stack)
 	{
-		updt_stack->value = *ranks++;
+		updt_stack->number = *ranks++;
 		updt_stack = updt_stack->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 19:02:48 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	check_duplicates(t_stack **stack)
 		tmp2 = tmp1->next;
 		while (tmp2)
 		{
-			if (tmp1->value == tmp2->value)
+			if (tmp1->number == tmp2->number)
 				return (0);
 			tmp2 = tmp2->next;
 		}
@@ -53,7 +53,7 @@ static int	is_sorted(t_stack **stack)
 	tmp = *stack;
 	while (tmp && tmp->next)
 	{
-		if (tmp->value > tmp->next->value)
+		if (tmp->number > tmp->next->number)
 			return (0);
 		tmp = tmp->next;
 	}
