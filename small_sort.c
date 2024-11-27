@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 19:22:01 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:00:22 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_ten(t_stack **a, t_stack **b)
 		}
 		else
 		{
-			while (min_i++ < stack_size(a))
+			while (min_i++ < size)
 				rra(a);
 		}
 		pb(a, b);
@@ -81,5 +81,5 @@ void	sort_ten(t_stack **a, t_stack **b)
 	}
 	sort_three(a);
 	while (*b)
-		(pa(a, b), size++);
+		pa(a, b);
 }
