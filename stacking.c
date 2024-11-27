@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 13:24:49 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:12:56 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,24 @@ t_stack	*new_node(int value)
 	return (node);
 }
 
-void	add_to_stack(t_stack **stack, int value)
+int	init_stack(char **argv, t_stack **stack)
 {
-	t_stack	*node;
+	int		value;
+	t_stack	*tmp;
+	t_stack	*end;
 
-	node = new_node(value);
-	node->next = *stack;
-	*stack = node;
-}
-
-int	init_stack(int argc, char **argv, t_stack **stack)
-{
-	int	i;
-	int	value;
-
-	i = argc - 1;
-	while (i > 0)
+	while (*argv)
 	{
-		value = ft_atoi(argv[i]);
-		// if (!value)
-		// 	return (0);
-		add_to_stack(stack, value);
-		i--;
+		value = ft_atoi(argv);
+		if (**argv && (**argv) != ' ')
+			return (0);
+		tmp = new_node(value);
+		if (*stack == NULL)
+			*stack = tmp;
+		else
+			end->next = tmp;
+		end = tmp;
+		argv += (**argv == 0);
 	}
 	return (1);
 }

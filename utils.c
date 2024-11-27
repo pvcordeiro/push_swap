@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 13:19:59 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:13:29 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,31 @@ int	is_null(t_stack **stack)
 	return (!stack || !(*stack) || !(*stack)->next);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char **str)
 {
 	long	result;
 	int		sign;
 
 	result = 0;
 	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+	while (*str[0] == ' ' || (*str[0] >= 9 && *str[0] <= 13))
+		str[0]++;
+	if (*str[0] == '-' || *str[0] == '+')
 	{
-		if (*str == '-')
+		if (*str[0] == '-')
 			sign = -1;
-		str++;
+		str[0]++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (*str[0] >= '0' && *str[0] <= '9')
 	{
-		result = result * 10 + (*str - '0');
+		result = result * 10 + (*str[0] - '0');
 		if (result * sign > INT_MAX || result * sign < INT_MIN)
+		{
+			*str[0] = 'e';
 			return (0);
-		str++;
+		}
+		str[0]++;
 	}
-	if (*str != '\0')
-		return (0);
 	return ((int)(result * sign));
 }
 

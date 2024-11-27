@@ -6,43 +6,43 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 13:42:02 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:09:02 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_split(char **argv)
-{
-	char	**start;
+// static void	free_split(char **argv)
+// {
+// 	char	**start;
 
-	start = argv;
-	while (*argv)
-		free(*argv++);
-	free(start);
-}
+// 	start = argv;
+// 	while (*argv)
+// 		free(*argv++);
+// 	free(start);
+// }
 
-static void	single_string(char **argv, t_stack **a)
-{
-	char	**temp;
-	int		argc;
+// static void	single_string(char **argv, t_stack **a)
+// {
+// 	char	**temp;
+// 	int		argc;
 
-	argv = ft_split(argv[1], ' ');
-	if (!argv)
-		quit();
-	temp = argv;
-	while (*temp)
-		temp++;
-	argc = temp - argv;
-	if (argc == 1)
-	{
-		free_split(argv);
-		exit(EXIT_SUCCESS);
-	}
-	if (!init_stack(argc + 1, argv - 1, a))
-		(free_split(argv), free_and_quit(a));
-	free_split(argv);
-}
+// 	argv = ft_split(*argv, ' ');
+// 	if (!argv)
+// 		quit();
+// 	temp = argv;
+// 	while (*temp)
+// 		temp++;
+// 	argc = temp - argv;
+// 	if (argc == 1)
+// 	{
+// 		free_split(argv);
+// 		exit(EXIT_SUCCESS);
+// 	}
+// 	if (!init_stack(argc + 1, argv - 1, a))
+// 		(free_split(argv), free_and_quit(a));
+// 	free_split(argv);
+// }
 
 int	is_sorted(t_stack *stack)
 {
@@ -77,11 +77,11 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	if (!argv[1][0])
+	if (!argv[1][0] || argv[1][0] == ' ')
 		quit();
-	if (argc == 2)
-		single_string(argv, &a);
-	else if (!init_stack(argc, argv, &a))
+	if ((argv[1][0] == '-' && !argv[1][1]) || argv[1][0] == '+')
+		quit();
+	if (!init_stack(++argv, &a))
 		free_and_quit(&a);
 	if (!check_duplicates(a))
 		free_and_quit(&a);

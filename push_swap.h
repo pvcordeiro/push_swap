@@ -6,19 +6,21 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 13:19:13 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:15:43 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// debug
+// # define HERE write(2, "HERE\n", 5)
+// # define THERE write(2, "THERE\n", 6)
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-
-#define HERE write(1, "HERE\n", 5)
-#define THERE write(1, "THERE\n", 6)
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -37,13 +39,12 @@ void	rrr(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-int	init_stack(int argc, char **argv, t_stack **stack);
-void	add_to_stack(t_stack **stack, int value);
+int		init_stack(char **argv, t_stack **stack);
 t_stack	*new_node(int value);
 void	free_stack(t_stack **stack);
 void	quit(void);
 int		check_duplicates(t_stack *stack);
-int		ft_atoi(const char *str);
+int		ft_atoi(char **str);
 int		is_null(t_stack **stack);
 char	**ft_split(char *s, char c);
 void	radix(t_stack **a, t_stack **b);

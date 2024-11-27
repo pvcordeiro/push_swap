@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 13:06:58 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:13:30 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	**ft_split(char *s, char c)
 	char	**str;
 	char	**clean;
 
-	if (!s)
+	if (!s || *s == c || *s == '+' || *s == '-')
 		return (NULL);
 	str = ft_calloc(ft_sub_count(s, c) + 1, sizeof(char *));
 	if (!str)
