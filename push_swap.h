@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 11:58:59 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:19:13 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	rrr(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-void	init_stack(int argc, char **argv, t_stack **stack);
+int	init_stack(int argc, char **argv, t_stack **stack);
 void	add_to_stack(t_stack **stack, int value);
 t_stack	*new_node(int value);
 void	free_stack(t_stack **stack);
 void	quit(void);
-void	check_duplicates(t_stack *stack);
+int		check_duplicates(t_stack *stack);
 int		ft_atoi(const char *str);
 int		is_null(t_stack **stack);
 char	**ft_split(char *s, char c);
@@ -53,5 +53,6 @@ int		is_sorted(t_stack *stack);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	normalize_stack(t_stack *stack);
 void	merge_sort(t_stack **a, t_stack **b);
+void	free_and_quit(t_stack **stack);
 
 #endif

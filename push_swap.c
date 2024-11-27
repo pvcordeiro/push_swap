@@ -6,13 +6,13 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 11:59:13 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:22:52 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_matrix(char **argv)
+static void	free_split(char **argv)
 {
 	char	**start;
 
@@ -25,25 +25,23 @@ static void	free_matrix(char **argv)
 static void	single_string(char **argv, t_stack **a)
 {
 	char	**temp;
-	int		count;
+	int		argc;
 
 	argv = ft_split(argv[1], ' ');
 	if (!argv)
-	{
-		free_stack(a);
 		quit();
-	}
 	temp = argv;
 	while (*temp)
 		temp++;
-	count = temp - argv;
-	if (count == 1)
+	argc = temp - argv;
+	if (argc == 1)
 	{
-		free_matrix(argv);
+		free_split(argv);
 		exit(EXIT_SUCCESS);
 	}
-	init_stack(count + 1, argv - 1, a);
-	free_matrix(argv);
+	if (!init_stack(argc + 1, argv - 1, a))
+		(free_split(argv), free_and_quit(a));
+	free_split(argv);
 }
 
 int	is_sorted(t_stack *stack)
@@ -83,11 +81,12 @@ int	main(int argc, char **argv)
 		quit();
 	if (argc == 2)
 		single_string(argv, &a);
-	else
-		init_stack(argc, argv, &a);
-	check_duplicates(a);
+	else if (!init_stack(argc, argv, &a))
+		free_and_quit(&a);
+	if (!check_duplicates(a))
+		free_and_quit(&a);
 	if (is_sorted(a))
-		return (1);
+		return (0);
 	handle_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

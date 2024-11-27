@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:37:06 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:19:59 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ int	ft_atoi(const char *str)
 	{
 		result = result * 10 + (*str - '0');
 		if (result * sign > INT_MAX || result * sign < INT_MIN)
-			quit();
+			return (0);
 		str++;
 	}
 	if (*str != '\0')
-		quit();
+		return (0);
 	return ((int)(result * sign));
 }
 
-void	check_duplicates(t_stack *stack)
+int	check_duplicates(t_stack *stack)
 {
 	t_stack	*outer;
 	t_stack	*inner;
@@ -56,11 +56,12 @@ void	check_duplicates(t_stack *stack)
 		while (inner)
 		{
 			if (outer->value == inner->value)
-				quit();
+				return (0);
 			inner = inner->next;
 		}
 		outer = outer->next;
 	}
+	return (1);
 }
 
 void	quit(void)
