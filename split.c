@@ -6,13 +6,13 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:03:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 14:13:30 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:24:34 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+static void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*alloc;
 	unsigned char	*iter;
@@ -57,9 +57,9 @@ static char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-static size_t	ft_sub_count(char *s, char c)
+static int	ft_sub_count(char *s, char c)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	while (*s)

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 20:46:53 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:33:56 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void	sort_ten(t_stack **a, t_stack **b)
 		}
 		pb(a, b);
 	}
-	if (!is_sorted(*a))
-		sort_three(a);
+	sort_three(a);
 	while (*b)
 		pa(a, b);
 }

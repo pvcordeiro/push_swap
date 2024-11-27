@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:15:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 18:40:57 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:23:50 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	normalize_stack(t_stack *stack)
 	int	size;
 
 	size = stack_size(stack);
-	ranks = ft_calloc(size, sizeof(int));
+	ranks = malloc(size * sizeof(int));
 	calculate_ranks(stack, ranks);
 	update_stack_with_ranks(stack, ranks);
 	free(ranks);
