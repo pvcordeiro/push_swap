@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 17:24:42 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:09:08 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rrr(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-t_stack	*new_node(int value);
+int		init_stack(char **argv, t_stack **stack);
 void	free_stack(t_stack **stack);
 void	quit(void);
 int		check_duplicates(t_stack *stack);

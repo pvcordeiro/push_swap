@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:03:52 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:13:58 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,6 @@ static int	sort_stack(t_stack **a, t_stack **b)
 	return (1);
 }
 
-static int	init_stack(char **argv, t_stack **stack)
-{
-	int		value;
-	t_stack	*tmp;
-	t_stack	*end;
-
-	while (*argv)
-	{
-		value = ft_atoi(argv);
-		if (**argv && **argv != ' ')
-			return (0);
-		tmp = new_node(value);
-		if (*stack == NULL)
-			*stack = tmp;
-		else
-			end->next = tmp;
-		end = tmp;
-		argv += (**argv == 0);
-	}
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -93,6 +71,5 @@ int	main(int argc, char **argv)
 		return (free_stack(&a), 0);
 	sort_stack(&a, &b);
 	free_stack(&a);
-	free_stack(&b);
 	return (0);
 }
