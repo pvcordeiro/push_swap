@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:18:13 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:00:16 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 int		init_stack(char **argv, t_stack **stack);
 void	free_stack(t_stack **stack);
-void	quit(void);
-int		check_duplicates(t_stack **stack);
-int		ft_atoi(char **str);
-int		is_null(t_stack **stack);
 void	radix(t_stack **a, t_stack **b);
-int		stack_size(t_stack *stack);
+int		stack_size(t_stack **stack);
 void	sort_ten(t_stack **a, t_stack **b);
-void	normalize_stack(t_stack *stack);
+void	normalize_stack(t_stack **stack);
 void	merge_sort(t_stack **a, t_stack **b);
+int		is_null(t_stack **stack);
+void	quit(void);
 
 #endif

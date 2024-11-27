@@ -6,23 +6,23 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:15:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 17:23:50 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:43:16 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	calculate_ranks(t_stack *stack, int *ranks)
+static void	calculate_ranks(t_stack **stack, int *ranks)
 {
 	t_stack	*iter_stack;
 	t_stack	*cmp_node;
 	int		cmp_rank;
 
-	iter_stack = stack;
+	iter_stack = *stack;
 	while (iter_stack)
 	{
 		cmp_rank = 0;
-		cmp_node = stack;
+		cmp_node = *stack;
 		while (cmp_node)
 		{
 			if (cmp_node->value < iter_stack->value)
@@ -34,11 +34,11 @@ static void	calculate_ranks(t_stack *stack, int *ranks)
 	}
 }
 
-static void	update_stack_with_ranks(t_stack *stack, int *ranks)
+static void	update_stack_with_ranks(t_stack **stack, int *ranks)
 {
 	t_stack	*updt_stack;
 
-	updt_stack = stack;
+	updt_stack = *stack;
 	while (updt_stack)
 	{
 		updt_stack->value = *ranks++;
@@ -46,7 +46,7 @@ static void	update_stack_with_ranks(t_stack *stack, int *ranks)
 	}
 }
 
-void	normalize_stack(t_stack *stack)
+void	normalize_stack(t_stack **stack)
 {
 	int	*ranks;
 	int	size;

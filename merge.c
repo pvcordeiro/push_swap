@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 12:24:24 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:38:17 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	merge_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 
-	size = stack_size(*a);
-	size = stack_size(*a);
+	size = stack_size(a);
+	size = stack_size(a);
 	if (size <= 1)
 		return ;
 	merge_sort_operations(a, b, size);

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 16:33:56 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:22:01 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,48 +33,53 @@ static void	sort_three(t_stack **a)
 		rra(a);
 }
 
-static int	find_min_index(t_stack *stack)
+static int	find_min_index(t_stack **stack)
 {
-	int	index;
-	int	min_index;
-	int	min_value;
+	int		i;
+	int		min_i;
+	int		min_value;
+	t_stack	*tmp;
 
-	index = 0;
-	min_index = 0;
-	min_value = stack->value;
-	while (stack)
+	tmp = *stack;
+	min_value = tmp->value;
+	i = 0;
+	min_i = 0;
+	while (tmp)
 	{
-		if (stack->value < min_value)
+		if (tmp->value < min_value)
 		{
-			min_value = stack->value;
-			min_index = index;
+			min_value = tmp->value;
+			min_i = i;
 		}
-		index++;
-		stack = stack->next;
+		i++;
+		tmp = tmp->next;
 	}
-	return (min_index);
+	return (min_i);
 }
 
 void	sort_ten(t_stack **a, t_stack **b)
 {
-	int	min_index;
+	int	min_i;
+	int	size;
 
-	while (stack_size(*a) > 3)
+	size = stack_size(a);
+	while (size > 3)
 	{
-		min_index = find_min_index(*a);
-		if (min_index <= stack_size(*a) / 2)
+		min_i = find_min_index(a);
+		if (min_i <= size / 2)
 		{
-			while (min_index--)
+			while (min_i--)
 				ra(a);
 		}
 		else
 		{
-			while (min_index++ < stack_size(*a))
+			while (min_i++ < stack_size(a))
 				rra(a);
 		}
 		pb(a, b);
+		size--;
 	}
 	sort_three(a);
 	while (*b)
-		pa(a, b);
+		(pa(a, b), size++);
 }

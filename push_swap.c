@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:16:46 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:02:48 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,59 @@
 
 static void	free_and_quit(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
 	while (*stack)
 	{
-		temp = (*stack)->next;
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = temp;
+		*stack = tmp;
 	}
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
-static int	is_sorted(t_stack *stack)
+static int	check_duplicates(t_stack **stack)
 {
-	while (stack && stack->next)
+	t_stack	*tmp1;
+	t_stack	*tmp2;
+
+	tmp1 = *stack;
+	while (tmp1)
 	{
-		if (stack->value > stack->next->value)
+		tmp2 = tmp1->next;
+		while (tmp2)
+		{
+			if (tmp1->value == tmp2->value)
+				return (0);
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+	}
+	return (1);
+}
+
+static int	is_sorted(t_stack **stack)
+{
+	t_stack *tmp;
+
+	tmp = *stack;
+	while (tmp && tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
 			return (0);
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }
 
 static int	sort_stack(t_stack **a, t_stack **b)
 {
-	if (stack_size(*a) == 2 && !is_sorted(*a))
+	if (stack_size(a) == 2 && !is_sorted(a))
 		sa(a);
-	else if (stack_size(*a) <= 10)
+	else if (stack_size(a) <= 10)
 		sort_ten(a, b);
-	// else if (stack_size(*a) <= 100)
+	// else if (stack_size(a) <= 100)
 	// 	merge_sort(a, b);
 	else
 		radix(a, b);
@@ -59,15 +82,14 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	if (!argv[1][0] || argv[1][0] == ' ')
-		quit();
-	if ((argv[1][0] == '-' && !argv[1][1]) || argv[1][0] == '+')
+	if (!argv[1][0] || argv[1][0] == ' ' || argv[1][0] == '+' ||
+	(argv[1][0] == '-' && !argv[1][1]))
 		quit();
 	if (!init_stack(++argv, &a))
 		free_and_quit(&a);
 	if (!check_duplicates(&a))
 		free_and_quit(&a);
-	if (is_sorted(a))
+	if (is_sorted(&a))
 		return (free_stack(&a), 0);
 	sort_stack(&a, &b);
 	free_stack(&a);
