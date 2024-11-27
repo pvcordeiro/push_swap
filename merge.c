@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:16:23 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 static void	split_stack_operations(t_stack **a, t_stack **b, int size)
 {
-	int	i;
+	int	half;
 
-	i = 0;
-	while (i < size / 2)
-	{
+	half = size / 2;
+	while (half--)
 		pb(a, b);
-		i++;
-	}
 }
 
 static void	merge_sorted_stacks(t_stack **a, t_stack **b, int left_size,
@@ -43,9 +40,9 @@ static void	merge_sorted_stacks(t_stack **a, t_stack **b, int left_size,
 			left_size--;
 		}
 	}
-	while (right_size-- > 0)
+	while (right_size--)
 		pa(a, b);
-	while (total_size-- > 0)
+	while (total_size--)
 		rra(a);
 }
 
@@ -68,7 +65,6 @@ void	merge_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 
-	size = stack_size(a);
 	size = stack_size(a);
 	if (size <= 1)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:33:13 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:58:20 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	ft_atoi(char **str)
 	return ((int)(result * sign));
 }
 
-static t_stack	*new_node(int nb)
+static t_stack	*create_node(int nb)
 {
 	t_stack	*node;
 
@@ -55,21 +55,22 @@ static t_stack	*new_node(int nb)
 int	init_stack(char **argv, t_stack **stack)
 {
 	int		nb;
-	t_stack	*tmp;
-	t_stack	*end;
+	t_stack	*new_node;
+	t_stack	*last_node;
 
 	while (*argv)
 	{
 		nb = ft_atoi(argv);
 		if (**argv && **argv != ' ')
 			return (0);
-		tmp = new_node(nb);
+		new_node = create_node(nb);
 		if (!*stack)
-			*stack = tmp;
+			*stack = new_node;
 		else
-			end->next = tmp;
-		end = tmp;
-		argv += (**argv == 0);
+			last_node->next = new_node;
+		last_node = new_node;
+		if (!**argv)
+			argv++;
 	}
 	return (1);
 }

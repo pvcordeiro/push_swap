@@ -6,21 +6,16 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:06:56 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// debug
-// # define HERE write(2, "HERE\n", 5)
-// # define THERE write(2, "THERE\n", 6)
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {

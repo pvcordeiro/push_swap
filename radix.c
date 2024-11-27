@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:00:52 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,15 @@ void	radix(t_stack **a, t_stack **b)
 			pa(a, b);
 		bit++;
 	}
+}
+
+int	is_null(t_stack **stack)
+{
+	return (!stack || !(*stack) || !(*stack)->next);
+}
+
+void	quit(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
