@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:08:58 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:15:50 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,3 @@ int	init_stack(char **argv, t_stack **stack)
 	}
 	return (1);
 }
-
-
-
-

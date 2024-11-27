@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 18:13:58 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:16:46 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 		quit();
 	if (!init_stack(++argv, &a))
 		free_and_quit(&a);
-	if (!check_duplicates(a))
+	if (!check_duplicates(&a))
 		free_and_quit(&a);
 	if (is_sorted(a))
 		return (free_stack(&a), 0);

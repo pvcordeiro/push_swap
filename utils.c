@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:54 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 16:19:39 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:16:37 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ int	ft_atoi(char **str)
 	return ((int)(result * sign));
 }
 
-int	check_duplicates(t_stack *stack)
+int	check_duplicates(t_stack **stack)
 {
 	t_stack	*outer;
 	t_stack	*inner;
 
-	outer = stack;
+	outer = *stack;
 	while (outer)
 	{
 		inner = outer->next;
