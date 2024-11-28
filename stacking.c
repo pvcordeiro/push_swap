@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:58:20 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:17:13 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,10 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = temp;
 	}
+}
+
+void	quit(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }

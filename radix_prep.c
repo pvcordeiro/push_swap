@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:15:41 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 20:30:15 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:14:46 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 static void	calculate_ranks(t_stack **stack, int *ranks)
 {
-	t_stack	*iter_stack;
+	t_stack	*tmp;
 	t_stack	*cmp_node;
 	int		cmp_rank;
 
-	iter_stack = *stack;
-	while (iter_stack)
+	tmp = *stack;
+	while (tmp)
 	{
 		cmp_rank = 0;
 		cmp_node = *stack;
 		while (cmp_node)
 		{
-			if (cmp_node->number < iter_stack->number)
+			if (cmp_node->number < tmp->number)
 				cmp_rank++;
 			cmp_node = cmp_node->next;
 		}
 		*ranks++ = cmp_rank;
-		iter_stack = iter_stack->next;
+		tmp = tmp->next;
 	}
 }
 
 static void	update_stack_with_ranks(t_stack **stack, int *ranks)
 {
-	t_stack	*updt_stack;
+	t_stack	*tmp;
 
-	updt_stack = *stack;
-	while (updt_stack)
+	tmp = *stack;
+	while (tmp)
 	{
-		updt_stack->number = *ranks++;
-		updt_stack = updt_stack->next;
+		tmp->number = *ranks++;
+		tmp = tmp->next;
 	}
 }
 

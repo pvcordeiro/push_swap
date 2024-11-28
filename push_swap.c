@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 11:18:06 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:20:10 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	sort_stack(t_stack **a, t_stack **b)
 {
 	if (stack_size(a) == 2 && !is_sorted(a))
 		sa(a);
-	else if (stack_size(a) <= 10)
+	else if (stack_size(a) <= 70)
 		sort_ten(a, b);
 	// else if (stack_size(a) <= 100)
 	// 	merge_sort(a, b);

@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 11:32:02 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:40:05 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static int	find_max_bits(t_stack **stack)
 void	radix(t_stack **a, t_stack **b)
 {
 	int	max_bits;
-	int	stack_size_a;
-	int	stack_size_b;
+	int	a_size;
+	int	b_size;
 	int	bit;
 
 	normalize_stack(a);
@@ -59,16 +59,16 @@ void	radix(t_stack **a, t_stack **b)
 	bit = 0;
 	while (bit < max_bits)
 	{
-		stack_size_a = stack_size(a);
-		while (stack_size_a--)
+		a_size = stack_size(a);
+		while (a_size--)
 		{
 			if (((*a)->number >> bit) & 1)
 				ra(a);
 			else
 				pb(a, b);
 		}
-		stack_size_b = stack_size(b);
-		while (stack_size_b--)
+		b_size = stack_size(b);
+		while (b_size--)
 		{
 			if (((*b)->number >> bit) & 1)
 				pa(a, b);
@@ -79,10 +79,4 @@ void	radix(t_stack **a, t_stack **b)
 	}
 	while (*b)
 		pa(a, b);
-}
-
-void	quit(void)
-{
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
 }
