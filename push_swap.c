@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 13:18:42 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:49:02 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,25 @@ static int	is_sorted(t_stack **stack)
 	return (1);
 }
 
-static int	sort_stack(t_stack **a, t_stack **b)
+static int	sort_stack(t_stack **a)
 {
+	t_stack	*b;
+
+	b = NULL;
 	if (stack_size(a) == 2 && !is_sorted(a))
 		sa(a);
 	else if (stack_size(a) <= 70)
-		sort_ten(a, b);
+		sort_ten(a, &b);
 	else
-		radix(a, b);
+		radix(a, &b);
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack	*b;
 
 	a = NULL;
-	b = NULL;
 	if (argc == 1)
 		return (0);
 	if (!argv[1][0] || argv[1][0] == ' ' || argv[1][0] == '+' ||
@@ -89,7 +90,7 @@ int	main(int argc, char **argv)
 		free_and_quit(&a);
 	if (is_sorted(&a))
 		return (free_stack(&a), 0);
-	sort_stack(&a, &b);
+	sort_stack(&a);
 	free_stack(&a);
 	return (0);
 }
