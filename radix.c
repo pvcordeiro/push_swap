@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 12:40:05 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:48:57 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,36 +47,39 @@ static int	find_max_bits(t_stack **stack)
 	return (bits);
 }
 
+static void	process_stacks(t_stack **a, t_stack **b, int bit)
+{
+	int	a_size;
+	int	b_size;
+
+	a_size = stack_size(a);
+	while (a_size--)
+	{
+		if (((*a)->number >> bit) & 1)
+			ra(a);
+		else
+			pb(a, b);
+	}
+	b_size = stack_size(b);
+	while (b_size--)
+	{
+		if (((*b)->number >> bit) & 1)
+			pa(a, b);
+		else
+			rb(b);
+	}
+}
+
 void	radix(t_stack **a, t_stack **b)
 {
 	int	max_bits;
-	int	a_size;
-	int	b_size;
 	int	bit;
 
 	normalize_stack(a);
 	max_bits = find_max_bits(a);
 	bit = 0;
 	while (bit < max_bits)
-	{
-		a_size = stack_size(a);
-		while (a_size--)
-		{
-			if (((*a)->number >> bit) & 1)
-				ra(a);
-			else
-				pb(a, b);
-		}
-		b_size = stack_size(b);
-		while (b_size--)
-		{
-			if (((*b)->number >> bit) & 1)
-				pa(a, b);
-			else
-				rb(b);
-		}
-		bit++;
-	}
+		process_stacks(a, b, bit++);
 	while (*b)
 		pa(a, b);
 }
