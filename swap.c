@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:10:38 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/26 17:32:48 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:31:46 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	swap(t_stack **stack)
 {
 	t_stack	*temp;
 
-	if (is_null(stack))
+	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
 	temp = *stack;
 	*stack = (*stack)-> next;

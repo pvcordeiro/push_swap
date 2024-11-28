@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:24:00 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 19:15:54 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:31:40 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	reverse_rotate(t_stack **stack)
 	t_stack	*new_tail;
 	t_stack	*new_head;
 
-	if (is_null(stack))
+	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
 	new_tail = *stack;
 	while (new_tail->next->next)

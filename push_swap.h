@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 21:06:56 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:32:11 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int		stack_size(t_stack **stack);
 void	sort_ten(t_stack **a, t_stack **b);
 void	normalize_stack(t_stack **stack);
 void	merge_sort(t_stack **a, t_stack **b);
-int		is_null(t_stack **stack);
 void	quit(void);
 
 #endif

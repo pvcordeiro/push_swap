@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:14:01 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/27 19:16:57 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:31:30 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate(t_stack **stack)
 	t_stack	*new_tail;
 	t_stack	*new_head;
 
-	if (is_null(stack))
+	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
 	new_tail = *stack;
 	*stack = new_tail->next;
