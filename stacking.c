@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/29 18:35:08 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 18:48:04 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_atoi(char **str)
 	if (**str == '-' || **str == '+')
 	{
 		if (**str == '-')
-			sign = -1;
+			sign = -sign;
 		(*str)++;
 	}
 	while (**str >= '0' && **str <= '9')

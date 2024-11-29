@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:36:10 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 12:47:58 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 18:54:18 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	find_min_index(t_stack **stack)
 	return (min_i);
 }
 
-void	sort_ten(t_stack **a, t_stack **b)
+void	sort_small(t_stack **a, t_stack **b)
 {
 	int	min_i;
 	int	size;
