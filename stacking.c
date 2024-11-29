@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 17:00:48 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 18:35:08 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	init_stack(char **argv, t_stack **stack)
 	return (1);
 }
 
-void	free_stack(t_stack **stack)
+int	free_stack(t_stack **stack)
 {
 	t_stack	*temp;
 
@@ -85,6 +85,7 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = temp;
 	}
+	return (0);
 }
 
 void	quit(void)
