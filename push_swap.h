@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:48 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/29 20:20:37 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 20:50:36 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ int		free_stack(t_stack **stack);
 void	radix(t_stack **a, t_stack **b);
 int		stack_size(t_stack **stack);
 void	sort_small(t_stack **a, t_stack **b);
-void	quit(void);
 
 #endif

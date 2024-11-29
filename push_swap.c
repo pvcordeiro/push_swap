@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/29 20:18:34 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 20:50:30 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,6 @@ int	main(int argc, char **argv)
 	a = NULL;
 	if (argc == 1)
 		return (0);
-	if (!argv[1][0] || argv[1][0] == ' ' || argv[1][0] == '+' ||
-	(argv[1][0] == '-' && !argv[1][1]))
-		quit();
 	if (!init_stack(++argv, &a))
 		free_and_quit(&a);
 	if (!check_duplicates(&a))
