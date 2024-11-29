@@ -1,7 +1,7 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c push.c swap.c rotate.c reverse_rotate.c stacking.c radix.c small_sort.c radix_prep.c
+SRCS = push_swap.c push.c swap.c rotate.c reverse_rotate.c stacking.c radix.c small_sort.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

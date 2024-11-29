@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:22:57 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 12:48:57 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/29 20:20:33 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,25 @@ int	stack_size(t_stack **stack)
 	return (size);
 }
 
+static void	normalize_stack(t_stack **a)
+{
+	t_stack	*tmp;
+	t_stack	*cmp_node;
+
+	tmp = *a;
+	while (tmp)
+	{
+		tmp->rank = 0;
+		cmp_node = *a;
+		while (cmp_node)
+		{
+			tmp->rank += (cmp_node->number < tmp->number);
+			cmp_node = cmp_node->next;
+		}
+		tmp = tmp->next;
+	}
+}
+
 static int	find_max_bits(t_stack **stack)
 {
 	int		max;
@@ -38,8 +57,8 @@ static int	find_max_bits(t_stack **stack)
 	tmp = *stack;
 	while (tmp)
 	{
-		if (tmp->number > max)
-			max = tmp->number;
+		if (tmp->rank > max)
+			max = tmp->rank;
 		tmp = tmp->next;
 	}
 	while (max >> bits)
@@ -55,7 +74,7 @@ static void	process_stacks(t_stack **a, t_stack **b, int bit)
 	a_size = stack_size(a);
 	while (a_size--)
 	{
-		if (((*a)->number >> bit) & 1)
+		if (((*a)->rank >> bit) & 1)
 			ra(a);
 		else
 			pb(a, b);
@@ -63,7 +82,7 @@ static void	process_stacks(t_stack **a, t_stack **b, int bit)
 	b_size = stack_size(b);
 	while (b_size--)
 	{
-		if (((*b)->number >> bit) & 1)
+		if (((*b)->rank >> bit) & 1)
 			pa(a, b);
 		else
 			rb(b);
