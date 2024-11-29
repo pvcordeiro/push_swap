@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/28 12:17:13 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/11/28 17:00:48 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_atoi(char **str)
 		}
 		(*str)++;
 	}
-	return ((int)(result * sign));
+	return ((result * sign));
 }
 
 static t_stack	*create_node(int nb)
