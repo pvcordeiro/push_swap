@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/12/02 11:43:05 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:28:56 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static t_stack	*create_node(int nb)
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		exit(EXIT_FAILURE);
+		return (NULL);
 	node->number = nb;
 	node->next = NULL;
 	return (node);
@@ -63,6 +63,8 @@ int	init_stack(char **argv, t_stack **stack)
 		if (**argv && **argv != ' ')
 			return (0);
 		new_node = create_node(nb);
+		if (!new_node)
+			return (0);
 		if (!*stack)
 			*stack = new_node;
 		else
