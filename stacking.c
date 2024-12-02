@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 16:56:42 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/29 20:50:25 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:36:59 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static int	ft_atoi(char **str)
 	if (**str == '-')
 		sign = -sign;
 	*str += (**str == '-' || **str == '+');
-	**str = (**str * (**str >= '0' && **str <= '9')) + \
-	!(**str >= '0' && **str <= '9');
+	**str = (**str * (**str >= '0' && **str <= '9')) + !(**str >= '0' && **str <= '9');
 	while (**str >= '0' && **str <= '9')
 	{
 		result = result * 10 + (**str - '0');
@@ -86,4 +85,3 @@ int	free_stack(t_stack **stack)
 	}
 	return (0);
 }
-

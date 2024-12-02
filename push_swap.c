@@ -6,7 +6,7 @@
 /*   By: paude-so <paude-so@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:59:12 by paude-so          #+#    #+#             */
-/*   Updated: 2024/11/29 20:50:30 by paude-so         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:23:57 by paude-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	sort_stack(t_stack **a)
 	t_stack	*b;
 
 	b = NULL;
-	if (stack_size(a) == 2 && !is_sorted(a))
+	if (stack_size(a) == 2)
 		sa(a);
 	else if (stack_size(a) <= 70)
 		sort_small(a, &b);
@@ -84,9 +84,8 @@ int	main(int argc, char **argv)
 		free_and_quit(&a);
 	if (!check_duplicates(&a))
 		free_and_quit(&a);
-	if (is_sorted(&a))
-		return (free_stack(&a));
-	sort_stack(&a);
+	if (!is_sorted(&a))
+		sort_stack(&a);
 	free_stack(&a);
 	return (0);
 }
